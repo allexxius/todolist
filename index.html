@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ToDo App</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/antd/4.16.13/antd.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Task List</h1>
+
+    <div id="auth-section">
+      <input type="text" id="username" placeholder="Username">
+      <input type="password" id="password" placeholder="Password">
+      <input type="text" id="firstname" placeholder="First name">
+      <input type="text" id="lastname" placeholder="Last name">
+      <button id="register" class="ant-btn">Register</button>
+      <button id="login" class="ant-btn">Login</button>
+      <button id="logout" class="ant-btn" style="display: none;">Logout</button>
+    </div>
+
+    <div id="task-section">
+      <input type="text" id="task-input" placeholder="Enter task name...">
+      <button id="add-task" class="ant-btn ant-btn-primary">Add Task</button>
+    </div>
+
+    <div id="connection-status" class="ant-alert" style="display: none;"></div>
+
+    <ul id="task-list" class="ant-list-items"></ul>
+
+    <template id="task-template">
+      <li class="ant-list-item">
+        <div class="task-content">
+          <input name="completed" type="checkbox" class="task-checkbox">
+          <input name="name" class="ant-input task-input" type="text">
+          <button class="delete-task">Delete</button>
+        </div>
+      </li>
+    </template>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
