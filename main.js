@@ -170,7 +170,7 @@ function renderTask(task) {
   completedCheckbox.checked = task.completed;
 
   nameInput.addEventListener('change', () => updateTask(task.id, { name: nameInput.value }));
-  completedCheckbox.addEventListener('change', () => updateTask(task.id, { completed: completedCheckbox.checked }));
+  completedCheckbox.addEventListener('change', () => updateTask(task.id, { marked_as_done: completedCheckbox.checked }));
   deleteButton.addEventListener('click', () => deleteTask(task.id, taskRow));
 
   taskList.appendChild(taskRow);
@@ -219,7 +219,7 @@ async function handleAddTask() {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${authToken}`
       },
-      body: JSON.stringify({ title: taskName, completed: false })
+      body: JSON.stringify({ title: taskName, marked_as_done: false })
     });
 
     if (!response.ok) throw new Error('Failed to add task');
